@@ -41,12 +41,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/advanced-logger.git"
+    "url": "git+https://github.com/Pixielity/advanced-logger.git"
   },
   "bugs": {
-    "url": "https://github.com/yourusername/advanced-logger/issues"
+    "url": "https://github.com/Pixielity/advanced-logger/issues"
   },
-  "homepage": "https://github.com/yourusername/advanced-logger#readme",
+  "homepage": "https://github.com/Pixielity/advanced-logger#readme",
   "dependencies": {
     "dexie": "^3.2.4"
   },
