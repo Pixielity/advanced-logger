@@ -1,0 +1,27 @@
+# Source
+**/*.ts
+**/*.tsx
+!**/*.d.ts
+
+# Config files
+tsconfig.json
+tsup.config.ts
+.eslintrc
+.prettierrc
+.gitignore
+
+# Tests
+**/*.test.ts
+**/*.spec.ts
+coverage
+
+# Development
+src
+examples
+docs
+.github
+.vscode
+
+# Misc
+.DS_Store
+*.log
