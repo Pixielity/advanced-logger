@@ -23,11 +23,11 @@ Welcome to the Advanced Logger documentation. This library provides a flexible a
 ## Installation
 
 ```bash
-npm install advanced-logger
+npm install @pixielity/advanced-logger
 
 # or
 
-yarn add advanced-logger
+yarn add @pixielity/advanced-logger
 ```
 
 ## Quick Start

@@ -7,11 +7,11 @@ This guide will help you get started with Advanced Logger in your project.
 Install the package using npm or yarn:
 
 ```bash
-npm install advanced-logger
+npm install @pixielity/advanced-logger
 
 # or
 
-yarn add advanced-logger
+yarn add @pixielity/advanced-logger
 ```
 
 ## Basic Setup
