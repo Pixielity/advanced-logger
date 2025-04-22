@@ -17,8 +17,8 @@ Context helps you correlate logs and understand the circumstances in which they 
 
 Global context applies to all loggers in your application. It's useful for information that's relevant to all logs.
 
-\`\`\`typescript
-import { addToGlobalContext, clearGlobalContext, Logger } from 'advanced-logger';
+```typescript
+import { addToGlobalContext, clearGlobalContext, Logger } from '@pixielity/advanced-logger';
 
 // Set global context at application startup
 addToGlobalContext({
@@ -34,14 +34,14 @@ logger.info('Application started'); // Includes global context
 
 // Clear global context when shutting down
 clearGlobalContext();
-\`\`\`
+```
 
 ## Logger-Specific Context
 
 You can add context to a specific logger using the `withContext` method:
 
-\`\`\`typescript
-import { Logger } from 'advanced-logger';
+```typescript
+import { Logger } from '@pixielity/advanced-logger';
 
 const logger = new Logger();
 
@@ -54,14 +54,14 @@ ip: '192.168.1.1'
 });
 
 requestLogger.info('Request received'); // Includes request context
-\`\`\`
+```
 
 ## User Context
 
 For user-related logging, you can create a logger with user context:
 
-\`\`\`typescript
-import { Logger } from 'advanced-logger';
+```typescript
+import { Logger } from '@pixielity/advanced-logger';
 
 const logger = new Logger();
 
@@ -76,14 +76,14 @@ userLogger.info(`User performed ${action}`); // Includes user context
 }
 
 logUserActivity('user-123', 'login');
-\`\`\`
+```
 
 ## Removing Context
 
 You can remove specific context keys using the `withoutContext` method:
 
-\`\`\`typescript
-import { Logger } from 'advanced-logger';
+```typescript
+import { Logger } from '@pixielity/advanced-logger';
 
 const logger = new Logger();
 
@@ -99,14 +99,14 @@ role: 'admin'
 const safeLogger = userLogger.withoutContext(['email']);
 
 safeLogger.info('User profile viewed'); // Includes userId, sessionId, role, but not email
-\`\`\`
+```
 
 ## Combining Global and Logger Context
 
 Global context and logger-specific context are merged when logs are created:
 
-\`\`\`typescript
-import { addToGlobalContext, Logger } from 'advanced-logger';
+```typescript
+import { addToGlobalContext, Logger } from '@pixielity/advanced-logger';
 
 // Set global context
 addToGlobalContext({
@@ -123,14 +123,14 @@ userId: 'user-123'
 
 // This log includes both global and logger-specific context
 userLogger.info('User logged in');
-\`\`\`
+```
 
 ## Context in Formatters
 
 Formatters can access and format context data:
 
-\`\`\`typescript
-import { LogFormatter, LogData } from 'advanced-logger';
+```typescript
+import { LogFormatter, LogData } from '@pixielity/advanced-logger';
 
 class ContextAwareFormatter implements LogFormatter {
 format(logData: LogData): { message: string; metadata?: Record<string, any> } {
@@ -156,7 +156,7 @@ const { level, timestamp, prefix, message, metadata, context } = logData;
 
 }
 }
-\`\`\`
+```
 
 ## Best Practices
 
@@ -189,6 +189,6 @@ const { level, timestamp, prefix, message, metadata, context } = logData;
    - Clear global context when shutting down
 
 By effectively using context in your logging, you can create more informative and useful logs that help you understand your application's behavior.
-\`\`\`
+```
 
 Let's create a guide for using the logger in React applications:

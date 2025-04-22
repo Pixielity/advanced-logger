@@ -4,7 +4,7 @@ The `GlobalContext` class manages global context data that can be applied to all
 
 ## Import
 
-\`\`\`typescript
+```typescript
 import {
 globalContext,
 setGlobalContext,
@@ -12,8 +12,8 @@ addToGlobalContext,
 removeFromGlobalContext,
 clearGlobalContext,
 getGlobalContext
-} from 'advanced-logger';
-\`\`\`
+} from '@pixielity/advanced-logger';
+```
 
 ## Singleton Instance
 
@@ -21,11 +21,11 @@ getGlobalContext
 
 The singleton instance of the GlobalContext class.
 
-\`\`\`typescript
-import { globalContext } from 'advanced-logger';
+```typescript
+import { globalContext } from '@pixielity/advanced-logger';
 
 globalContext.add({ app: 'MyApp' });
-\`\`\`
+```
 
 ## Convenience Functions
 
@@ -33,59 +33,59 @@ globalContext.add({ app: 'MyApp' });
 
 Sets the global context (replaces existing context).
 
-\`\`\`typescript
-import { setGlobalContext } from 'advanced-logger';
+```typescript
+import { setGlobalContext } from '@pixielity/advanced-logger';
 
 setGlobalContext({
 app: 'MyApp',
 environment: 'production',
 version: '1.0.0'
 });
-\`\`\`
+```
 
 ### addToGlobalContext(context: Record<string, any>): void
 
 Adds data to the global context.
 
-\`\`\`typescript
-import { addToGlobalContext } from 'advanced-logger';
+```typescript
+import { addToGlobalContext } from '@pixielity/advanced-logger';
 
 addToGlobalContext({
 userId: '123',
 sessionId: 'abc-xyz'
 });
-\`\`\`
+```
 
 ### removeFromGlobalContext(keys: string[]): void
 
 Removes specific keys from the global context.
 
-\`\`\`typescript
-import { removeFromGlobalContext } from 'advanced-logger';
+```typescript
+import { removeFromGlobalContext } from '@pixielity/advanced-logger';
 
 removeFromGlobalContext(['userId', 'sessionId']);
-\`\`\`
+```
 
 ### clearGlobalContext(): void
 
 Clears all global context data.
 
-\`\`\`typescript
-import { clearGlobalContext } from 'advanced-logger';
+```typescript
+import { clearGlobalContext } from '@pixielity/advanced-logger';
 
 clearGlobalContext();
-\`\`\`
+```
 
 ### getGlobalContext(): Record<string, any>
 
 Gets the current global context data.
 
-\`\`\`typescript
-import { getGlobalContext } from 'advanced-logger';
+```typescript
+import { getGlobalContext } from '@pixielity/advanced-logger';
 
 const context = getGlobalContext();
 console.log(context); // { app: 'MyApp', environment: 'production', ... }
-\`\`\`
+```
 
 ## GlobalContext Class Methods
 
@@ -95,85 +95,85 @@ If you need to use the class methods directly:
 
 Gets the singleton instance.
 
-\`\`\`typescript
-import { GlobalContext } from 'advanced-logger';
+```typescript
+import { GlobalContext } from '@pixielity/advanced-logger';
 
 const context = GlobalContext.getInstance();
-\`\`\`
+```
 
 ### set(context: Record<string, any>): void
 
 Sets the global context (replaces existing context).
 
-\`\`\`typescript
+```typescript
 globalContext.set({
 app: 'MyApp',
 environment: 'production'
 });
-\`\`\`
+```
 
 ### add(context: Record<string, any>): void
 
 Adds data to the global context.
 
-\`\`\`typescript
+```typescript
 globalContext.add({
 userId: '123',
 sessionId: 'abc-xyz'
 });
-\`\`\`
+```
 
 ### remove(keys: string[]): void
 
 Removes specific keys from the global context.
 
-\`\`\`typescript
+```typescript
 globalContext.remove(['userId', 'sessionId']);
-\`\`\`
+```
 
 ### clear(): void
 
 Clears all global context data.
 
-\`\`\`typescript
+```typescript
 globalContext.clear();
-\`\`\`
+```
 
 ### get(): Record<string, any>
 
 Gets the current global context data.
 
-\`\`\`typescript
+```typescript
 const context = globalContext.get();
-\`\`\`
+```
 
 ### has(key: string): boolean
 
 Checks if the global context has a specific key.
 
-\`\`\`typescript
+```typescript
 if (globalContext.has('userId')) {
 // Do something
 }
-\`\`\`
+```
 
 ### getValue(key: string): any
 
 Gets a specific value from the global context.
 
-\`\`\`typescript
+```typescript
 const userId = globalContext.getValue('userId');
-\`\`\`
+```
 
 ## Example Usage
 
-\`\`\`typescript
+```typescript
 import {
 addToGlobalContext,
 clearGlobalContext,
 Logger,
 ConsoleTransport
-} from 'advanced-logger';
+} from '@pixielity/advanced-logger';
 
 // Add global context that will be included in all logs
 addToGlobalContext({

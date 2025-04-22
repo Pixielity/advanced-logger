@@ -39,6 +39,6 @@ This section provides detailed documentation for all the classes, interfaces, an
 
 - [Context Functions](./utils/context-functions.md) - Functions for managing global context
 - [Time Utilities](./utils/time-utilities.md) - Functions for formatting timestamps
-  \`\`\`
+  ```
 
 Let's create the Logger API documentation:

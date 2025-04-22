@@ -4,15 +4,15 @@ The `Logger` class is the core of the Advanced Logger library. It provides metho
 
 ## Import
 
-\`\`\`typescript
-import { Logger } from 'advanced-logger';
-\`\`\`
+```typescript
+import { Logger } from '@pixielity/advanced-logger';
+```
 
 ## Constructor
 
-\`\`\`typescript
+```typescript
 constructor(options: LoggerOptions = {})
-\`\`\`
+```
 
 Creates a new Logger instance with the specified options.
 
@@ -28,8 +28,8 @@ Creates a new Logger instance with the specified options.
 
 ### Example
 
-\`\`\`typescript
-import { Logger, ConsoleTransport, textFormatter, LogLevel } from 'advanced-logger';
+```typescript
+import { Logger, ConsoleTransport, textFormatter, LogLevel } from '@pixielity/advanced-logger';
 
 const logger = new Logger({
 prefix: 'MyApp',
@@ -39,7 +39,7 @@ minLevel: LogLevel.INFO,
 enableMetadata: true,
 timestampFormat: 'ISO'
 });
-\`\`\`
+```
 
 ## Methods
 
@@ -49,33 +49,33 @@ timestampFormat: 'ISO'
 
 Logs an informational message.
 
-\`\`\`typescript
+```typescript
 logger.info('Application started', { version: '1.0.0' });
-\`\`\`
+```
 
 #### warn(message: string, metadata?: Record<string, any>): void
 
 Logs a warning message.
 
-\`\`\`typescript
+```typescript
 logger.warn('Deprecated feature used', { feature: 'oldAPI' });
-\`\`\`
+```
 
 #### error(message: string, metadata?: Record<string, any>): void
 
 Logs an error message.
 
-\`\`\`typescript
+```typescript
 logger.error('Failed to connect to database', { error: err.message });
-\`\`\`
+```
 
 #### debug(message: string, metadata?: Record<string, any>): void
 
 Logs a debug message.
 
-\`\`\`typescript
+```typescript
 logger.debug('Processing item', { itemId: '123', state: 'pending' });
-\`\`\`
+```
 
 ### Configuration Methods
 
@@ -83,39 +83,39 @@ logger.debug('Processing item', { itemId: '123', state: 'pending' });
 
 Sets the formatter for this logger instance.
 
-\`\`\`typescript
-import { jsonFormatter } from 'advanced-logger';
+```typescript
+import { jsonFormatter } from '@pixielity/advanced-logger';
 
 logger.setFormatter(jsonFormatter);
-\`\`\`
+```
 
 #### addTransport(transport: Transport): Logger
 
 Adds a transport to this logger.
 
-\`\`\`typescript
-import { MemoryTransport } from 'advanced-logger';
+```typescript
+import { MemoryTransport } from '@pixielity/advanced-logger';
 
 logger.addTransport(new MemoryTransport({ maxLogs: 100 }));
-\`\`\`
+```
 
 #### clearTransports(): Logger
 
 Removes all transports from this logger.
 
-\`\`\`typescript
+```typescript
 logger.clearTransports();
-\`\`\`
+```
 
 #### setMinLevel(level: LogLevelType): Logger
 
 Sets the minimum log level.
 
-\`\`\`typescript
-import { LogLevel } from 'advanced-logger';
+```typescript
+import { LogLevel } from '@pixielity/advanced-logger';
 
 logger.setMinLevel(LogLevel.WARN);
-\`\`\`
+```
 
 ### Context Methods
 
@@ -123,24 +123,24 @@ logger.setMinLevel(LogLevel.WARN);
 
 Creates a new logger with the specified context added.
 
-\`\`\`typescript
+```typescript
 const userLogger = logger.withContext({
 userId: '123',
 sessionId: 'abc-xyz'
 });
 
 userLogger.info('User logged in'); // Will include the context
-\`\`\`
+```
 
 #### withoutContext(keys: string[]): Logger
 
 Creates a new logger with the specified context keys removed.
 
-\`\`\`typescript
+```typescript
 const reducedLogger = userLogger.withoutContext(['sessionId']);
 
 reducedLogger.info('User action'); // Will include userId but not sessionId
-\`\`\`
+```
 
 ### Other Methods
 
@@ -148,18 +148,18 @@ reducedLogger.info('User action'); // Will include userId but not sessionId
 
 Creates a new logger instance with custom options.
 
-\`\`\`typescript
+```typescript
 const newLogger = logger.createLogger({
 prefix: 'AnotherApp',
 minLevel: LogLevel.DEBUG
 });
-\`\`\`
+```
 
 ## Default Instance
 
 The library exports a default logger instance that you can use without creating your own:
 
-\`\`\`typescript
-import { defaultLogger } from 'advanced-logger';
+```typescript
+import { defaultLogger } from '@pixielity/advanced-logger';
 
 defaultLogger.info('Using the default logger');

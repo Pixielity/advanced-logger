@@ -6,9 +6,9 @@ This guide explains how to effectively use Advanced Logger in React applications
 
 First, set up a logger instance for your React application:
 
-\`\`\`typescript
+```typescript
 // src/utils/logger.ts
-import { Logger, ConsoleTransport, prettyFormatter } from 'advanced-logger';
+import { Logger, ConsoleTransport, prettyFormatter } from '@pixielity/advanced-logger';
 
 // Create a logger instance
 export const logger = new Logger({
@@ -16,16 +16,16 @@ prefix: 'ReactApp',
 formatter: prettyFormatter,
 transports: [new ConsoleTransport()]
 });
-\`\`\`
+```
 
 ## Creating a Logger Context
 
 Create a React context to provide the logger throughout your application:
 
-\`\`\`typescript
+```typescript
 // src/contexts/LoggerContext.tsx
 import React, { createContext, useContext } from 'react';
-import { Logger } from 'advanced-logger';
+import { Logger } from '@pixielity/advanced-logger';
 import { logger } from '../utils/logger';
 
 // Create the context
@@ -45,13 +45,13 @@ return (
 
 // Create a hook to use the logger
 export const useLogger = () => useContext(LoggerContext);
-\`\`\`
+```
 
 ## Setting Up the Provider
 
 Wrap your application with the LoggerProvider:
 
-\`\`\`typescript
+```typescript
 // src/App.tsx
 import React from 'react';
 import { LoggerProvider } from './contexts/LoggerContext';
@@ -67,13 +67,13 @@ return (
 };
 
 export default App;
-\`\`\`
+```
 
 ## Using the Logger in Components
 
 Use the logger in your components with the custom hook:
 
-\`\`\`typescript
+```typescript
 // src/components/UserProfile.tsx
 import React, { useEffect, useState } from 'react';
 import { useLogger } from '../contexts/LoggerContext';
@@ -144,13 +144,13 @@ return (
 };
 
 export default UserProfile;
-\`\`\`
+```
 
 ## Logging React Router Navigation
 
 If you're using React Router, you can log navigation events:
 
-\`\`\`typescript
+```typescript
 // src/components/RouterLogger.tsx
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
@@ -183,13 +183,13 @@ return (
 </LoggerProvider>
 );
 };
-\`\`\`
+```
 
 ## Logging Redux Actions
 
 If you're using Redux, you can create a middleware to log actions:
 
-\`\`\`typescript
+```typescript
 // src/redux/loggerMiddleware.ts
 import { Middleware } from 'redux';
 import { logger } from '../utils/logger';
@@ -216,13 +216,13 @@ applyMiddleware(loggerMiddleware)
 );
 
 export default store;
-\`\`\`
+```
 
 ## Logging React Query
 
 If you're using React Query, you can add logging to the query client:
 
-\`\`\`typescript
+```typescript
 // src/utils/queryClient.ts
 import { QueryClient } from 'react-query';
 import { logger } from './logger';
@@ -253,15 +253,15 @@ variables
 }
 }
 });
-\`\`\`
+```
 
 ## Displaying Logs in the UI
 
 You can create a log viewer component using the MemoryTransport:
 
-\`\`\`typescript
+```typescript
 // src/utils/logger.ts
-import { Logger, ConsoleTransport, MemoryTransport, prettyFormatter } from 'advanced-logger';
+import { Logger, ConsoleTransport, MemoryTransport, prettyFormatter } from '@pixielity/advanced-logger';
 
 // Create a memory transport
 export const memoryTransport = new MemoryTransport({ maxLogs: 100 });
@@ -323,7 +323,7 @@ logs.map((log, index) => (
 </div>
 );
 };
-\`\`\`
+```
 
 ## Best Practices
 
@@ -361,6 +361,6 @@ logs.map((log, index) => (
    - Filter out passwords, tokens, etc.
 
 By following these guidelines, you can effectively use Advanced Logger in your React applications to improve debugging and monitoring.
-\`\`\`
+```
 
 Let's create a guide for using the logger in Next.js applications:

@@ -10,22 +10,22 @@ Advanced Logger comes with several built-in transports:
 
 Logs messages to the console.
 
-\`\`\`typescript
-import { Logger, ConsoleTransport } from 'advanced-logger';
+```typescript
+import { Logger, ConsoleTransport } from '@pixielity/advanced-logger';
 
 const logger = new Logger({
 transports: [new ConsoleTransport()]
 });
 
 logger.info('This goes to the console');
-\`\`\`
+```
 
 ### MemoryTransport
 
 Stores logs in memory, useful for displaying logs in a UI.
 
-\`\`\`typescript
-import { Logger, MemoryTransport } from 'advanced-logger';
+```typescript
+import { Logger, MemoryTransport } from '@pixielity/advanced-logger';
 
 const memoryTransport = new MemoryTransport({ maxLogs: 100 });
 const logger = new Logger({
@@ -37,14 +37,14 @@ logger.info('This is stored in memory');
 // Later, retrieve the logs
 const logs = await memoryTransport.getLogs();
 console.log(logs); // Array of log entries
-\`\`\`
+```
 
 ### LocalStorageTransport
 
 Stores logs in the browser's localStorage.
 
-\`\`\`typescript
-import { Logger, LocalStorageTransport } from 'advanced-logger';
+```typescript
+import { Logger, LocalStorageTransport } from '@pixielity/advanced-logger';
 
 const logger = new Logger({
 transports: [new LocalStorageTransport({
@@ -58,14 +58,14 @@ logger.info('This is stored in localStorage');
 // Later, retrieve the logs
 const storageTransport = logger.transports[0] as LocalStorageTransport;
 const logs = storageTransport.getLogs();
-\`\`\`
+```
 
 ### IndexedDBTransport
 
 Stores logs in the browser's IndexedDB, suitable for larger log volumes.
 
-\`\`\`typescript
-import { Logger, IndexedDBTransport } from 'advanced-logger';
+```typescript
+import { Logger, IndexedDBTransport } from '@pixielity/advanced-logger';
 
 const logger = new Logger({
 transports: [new IndexedDBTransport({
@@ -79,14 +79,14 @@ logger.info('This is stored in IndexedDB');
 // Later, retrieve the logs
 const dbTransport = logger.transports[0] as IndexedDBTransport;
 const logs = await dbTransport.getLogs();
-\`\`\`
+```
 
 ### HttpTransport
 
 Sends logs to a remote endpoint.
 
-\`\`\`typescript
-import { Logger, HttpTransport } from 'advanced-logger';
+```typescript
+import { Logger, HttpTransport } from '@pixielity/advanced-logger';
 
 const logger = new Logger({
 transports: [new HttpTransport({
@@ -102,19 +102,19 @@ logger.info('This is sent to the remote endpoint');
 // Force send any pending logs
 const httpTransport = logger.transports[0] as HttpTransport;
 await httpTransport.flush();
-\`\`\`
+```
 
 ## Using Multiple Transports
 
 You can use multiple transports with a single logger:
 
-\`\`\`typescript
+```typescript
 import {
 Logger,
 ConsoleTransport,
 MemoryTransport,
 HttpTransport
-} from 'advanced-logger';
+} from '@pixielity/advanced-logger';
 
 const logger = new Logger({
 transports: [
@@ -126,14 +126,14 @@ new HttpTransport({ endpoint: 'https://logs.example.com/api' })
 
 // This log goes to all three transports
 logger.info('Important message');
-\`\`\`
+```
 
 ## Adding and Removing Transports
 
 You can add and remove transports after creating a logger:
 
-\`\`\`typescript
-import { Logger, ConsoleTransport, MemoryTransport } from 'advanced-logger';
+```typescript
+import { Logger, ConsoleTransport, MemoryTransport } from '@pixielity/advanced-logger';
 
 // Start with just console logging
 const logger = new Logger({
@@ -146,14 +146,14 @@ logger.addTransport(memoryTransport);
 
 // Remove all transports
 logger.clearTransports();
-\`\`\`
+```
 
 ## Creating a Custom Transport
 
 You can create your own transport by implementing the `Transport` interface:
 
-\`\`\`typescript
-import { Transport, LogLevelType } from 'advanced-logger';
+```typescript
+import { Transport, LogLevelType } from '@pixielity/advanced-logger';
 
 class CustomTransport implements Transport {
 log(
@@ -197,7 +197,7 @@ return [];
 const logger = new Logger({
 transports: [new CustomTransport()]
 });
-\`\`\`
+```
 
 ## Best Practices
 
@@ -225,6 +225,6 @@ transports: [new CustomTransport()]
    - Clear logs when appropriate to free up resources
 
 By effectively using transports, you can create a flexible logging system that meets your application's specific needs.
-\`\`\`
+```
 
 Let's create a guide for formatters:

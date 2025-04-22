@@ -6,14 +6,14 @@ Advanced Logger is built around several key concepts that provide flexibility an
 
 A `Logger` is the main class you'll interact with. It provides methods for logging messages at different levels (debug, info, warn, error) and manages the flow of log data through formatters and transports.
 
-\`\`\`typescript
-import { Logger } from 'advanced-logger';
+```typescript
+import { Logger } from '@pixielity/advanced-logger';
 
 const logger = new Logger({
 prefix: 'MyApp',
 // other options
 });
-\`\`\`
+```
 
 ## Log Levels
 
@@ -26,14 +26,14 @@ Advanced Logger supports four log levels, in order of increasing severity:
 
 You can set a minimum log level to filter out less severe messages:
 
-\`\`\`typescript
-import { Logger, LogLevel } from 'advanced-logger';
+```typescript
+import { Logger, LogLevel } from '@pixielity/advanced-logger';
 
 const logger = new Logger({
 prefix: 'MyApp',
 minLevel: LogLevel.WARN // Only warn and error messages will be logged
 });
-\`\`\`
+```
 
 ## Transports
 
@@ -47,8 +47,8 @@ Transports are responsible for actually storing or displaying log messages. Adva
 
 You can use multiple transports with a single logger:
 
-\`\`\`typescript
-import { Logger, ConsoleTransport, MemoryTransport } from 'advanced-logger';
+```typescript
+import { Logger, ConsoleTransport, MemoryTransport } from '@pixielity/advanced-logger';
 
 const logger = new Logger({
 prefix: 'MyApp',
@@ -57,7 +57,7 @@ new ConsoleTransport(),
 new MemoryTransport({ maxLogs: 100 })
 ]
 });
-\`\`\`
+```
 
 ## Formatters
 
@@ -68,22 +68,22 @@ Formatters determine how log data is structured before being passed to transport
 - **prettyFormatter** - Human-readable format with emojis
 - **simpleFormatter** - Minimal format
 
-\`\`\`typescript
-import { Logger, ConsoleTransport, prettyFormatter } from 'advanced-logger';
+```typescript
+import { Logger, ConsoleTransport, prettyFormatter } from '@pixielity/advanced-logger';
 
 const logger = new Logger({
 prefix: 'MyApp',
 formatter: prettyFormatter,
 transports: [new ConsoleTransport()]
 });
-\`\`\`
+```
 
 ## Context
 
 Context allows you to attach additional data to your logs. This can be done globally or per-logger:
 
-\`\`\`typescript
-import { Logger, addToGlobalContext } from 'advanced-logger';
+```typescript
+import { Logger, addToGlobalContext } from '@pixielity/advanced-logger';
 
 // Add global context that applies to all loggers
 addToGlobalContext({ app: 'MyApp', environment: 'production' });
@@ -95,14 +95,14 @@ const userLogger = logger.withContext({ userId: '123', sessionId: 'abc' });
 
 // All logs from userLogger will include both the global context and the user context
 userLogger.info('User action');
-\`\`\`
+```
 
 ## LoggerManager
 
 The `LoggerManager` provides a convenient way to create and manage multiple logger instances with different configurations:
 
-\`\`\`typescript
-import { loggerManager } from 'advanced-logger';
+```typescript
+import { loggerManager } from '@pixielity/advanced-logger';
 
 // Create different types of loggers
 const consoleLogger = loggerManager.createConsoleDriver();
@@ -110,9 +110,9 @@ const memoryLogger = loggerManager.createMemoryDriver();
 const httpLogger = loggerManager.createHttpDriver({
 endpoint: 'https://logs.example.com/api'
 });
-\`\`\`
+```
 
 Understanding these core concepts will give you a solid foundation for using Advanced Logger effectively in your applications.
-\`\`\`
+```
 
 Now, let's create the API reference index:

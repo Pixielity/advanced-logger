@@ -6,7 +6,7 @@ Advanced Logger allows you to create custom transports to send logs to any desti
 
 All transports must implement the `Transport` interface:
 
-\`\`\`typescript
+```typescript
 interface Transport {
 log(
 level: LogLevelType,
@@ -19,7 +19,7 @@ context?: Record<string, any>
 clear?(): void | Promise<void>;
 getLogs?(): Array<any> | Promise<Array<any>>;
 }
-\`\`\`
+```
 
 The `log` method is required and handles the actual logging, while `clear` and `getLogs` are optional methods that can be implemented if your transport supports them.
 
@@ -27,8 +27,8 @@ The `log` method is required and handles the actual logging, while `clear` and `
 
 Here's an example of a simple custom transport that logs to a custom endpoint:
 
-\`\`\`typescript
-import { Transport, LogLevelType } from 'advanced-logger';
+```typescript
+import { Transport, LogLevelType } from '@pixielity/advanced-logger';
 
 class CustomApiTransport implements Transport {
 private endpoint: string;
@@ -71,7 +71,7 @@ context
 }
 
 // Use the custom transport
-import { Logger } from 'advanced-logger';
+import { Logger } from '@pixielity/advanced-logger';
 
 const logger = new Logger({
 prefix: 'MyApp',
@@ -84,14 +84,14 @@ apiKey: 'your-api-key'
 });
 
 logger.info('Using custom transport');
-\`\`\`
+```
 
 ## Creating a Batched Transport
 
 For better performance, you might want to batch logs before sending them:
 
-\`\`\`typescript
-import { Transport, LogLevelType } from 'advanced-logger';
+```typescript
+import { Transport, LogLevelType } from '@pixielity/advanced-logger';
 
 class BatchedApiTransport implements Transport {
 private endpoint: string;
@@ -188,14 +188,14 @@ this.stopTimer();
 this.sendBatch();
 }
 }
-\`\`\`
+```
 
 ## Creating a Transport with Storage
 
 Here's an example of a transport that stores logs in a custom storage system:
 
-\`\`\`typescript
-import { Transport, LogLevelType } from 'advanced-logger';
+```typescript
+import { Transport, LogLevelType } from '@pixielity/advanced-logger';
 
 class CustomStorageTransport implements Transport {
 private storageKey: string;
@@ -266,14 +266,14 @@ getLogs(): Array<any> {
 return [...this.logs];
 }
 }
-\`\`\`
+```
 
 ## Creating a Transport for a Third-Party Service
 
 Here's an example of a transport for a third-party logging service like Sentry:
 
-\`\`\`typescript
-import { Transport, LogLevelType } from 'advanced-logger';
+```typescript
+import { Transport, LogLevelType } from '@pixielity/advanced-logger';
 import \* as Sentry from '@sentry/browser';
 
 class SentryTransport implements Transport {
@@ -329,7 +329,7 @@ sentryLevel = Sentry.Severity.Info;
 
 }
 }
-\`\`\`
+```
 
 ## Best Practices for Custom Transports
 

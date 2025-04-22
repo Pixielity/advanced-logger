@@ -4,9 +4,9 @@ The `LoggerManager` class provides a convenient way to create and manage multipl
 
 ## Import
 
-\`\`\`typescript
-import { loggerManager } from 'advanced-logger';
-\`\`\`
+```typescript
+import { loggerManager } from '@pixielity/advanced-logger';
+```
 
 ## Methods
 
@@ -16,29 +16,29 @@ import { loggerManager } from 'advanced-logger';
 
 Gets a logger instance by driver name.
 
-\`\`\`typescript
+```typescript
 const consoleLogger = loggerManager.driver('console');
-\`\`\`
+```
 
 #### stack(name: string | null = null): Logger
 
 Gets a logger instance by stack name.
 
-\`\`\`typescript
+```typescript
 // First, create a stack
 loggerManager.createStack('app', ['console', 'memory']);
 
 // Then get the logger for that stack
 const appLogger = loggerManager.stack('app');
-\`\`\`
+```
 
 #### transporter(name: string | null = null): any
 
 Gets a transporter by name.
 
-\`\`\`typescript
+```typescript
 const consoleTransporter = loggerManager.transporter('console');
-\`\`\`
+```
 
 ### Creation Methods
 
@@ -46,63 +46,63 @@ const consoleTransporter = loggerManager.transporter('console');
 
 Creates a driver with the given name and config.
 
-\`\`\`typescript
+```typescript
 const customLogger = loggerManager.createDriver('custom', {
 prefix: 'Custom',
 minLevel: 'debug'
 });
-\`\`\`
+```
 
 #### createConsoleDriver(config: Partial<LoggerOptions> = {}): Logger
 
 Creates a console driver.
 
-\`\`\`typescript
+```typescript
 const consoleLogger = loggerManager.createConsoleDriver({
 prefix: 'Console'
 });
-\`\`\`
+```
 
 #### createLocalStorageDriver(config: Partial<LoggerOptions> & { key?: string; maxLogs?: number } = {}): Logger
 
 Creates a localStorage driver.
 
-\`\`\`typescript
+```typescript
 const storageLogger = loggerManager.createLocalStorageDriver({
 prefix: 'Storage',
 key: 'app_logs',
 maxLogs: 100
 });
-\`\`\`
+```
 
 #### createMemoryDriver(config: Partial<LoggerOptions> & { maxLogs?: number } = {}): Logger
 
 Creates a memory driver.
 
-\`\`\`typescript
+```typescript
 const memoryLogger = loggerManager.createMemoryDriver({
 prefix: 'Memory',
 maxLogs: 50
 });
-\`\`\`
+```
 
 #### createIndexedDBDriver(config: Partial<LoggerOptions> & { databaseName?: string; maxLogs?: number } = {}): Logger
 
 Creates an IndexedDB driver.
 
-\`\`\`typescript
+```typescript
 const dbLogger = loggerManager.createIndexedDBDriver({
 prefix: 'DB',
 databaseName: 'app_logs',
 maxLogs: 1000
 });
-\`\`\`
+```
 
 #### createHttpDriver(config: Partial<LoggerOptions> & { endpoint: string; headers?: Record<string, string>; batchSize?: number; batchInterval?: number }): Logger
 
 Creates an HTTP driver.
 
-\`\`\`typescript
+```typescript
 const httpLogger = loggerManager.createHttpDriver({
 prefix: 'API',
 endpoint: 'https://logs.example.com/api',
@@ -110,7 +110,7 @@ headers: { 'Authorization': 'Bearer token' },
 batchSize: 10,
 batchInterval: 5000
 });
-\`\`\`
+```
 
 ### Stack Methods
 
@@ -118,9 +118,9 @@ batchInterval: 5000
 
 Creates a stack of loggers.
 
-\`\`\`typescript
+```typescript
 loggerManager.createStack('app', ['console', 'memory']);
-\`\`\`
+```
 
 ### Transporter Methods
 
@@ -128,11 +128,11 @@ loggerManager.createStack('app', ['console', 'memory']);
 
 Registers a transporter.
 
-\`\`\`typescript
-import { ConsoleTransport } from 'advanced-logger';
+```typescript
+import { ConsoleTransport } from '@pixielity/advanced-logger';
 
 loggerManager.registerTransporter('custom-console', new ConsoleTransport());
-\`\`\`
+```
 
 ### Configuration Methods
 
@@ -140,30 +140,30 @@ loggerManager.registerTransporter('custom-console', new ConsoleTransport());
 
 Gets the default instance name.
 
-\`\`\`typescript
+```typescript
 const defaultName = loggerManager.getDefaultInstance();
-\`\`\`
+```
 
 #### setDefaultInstance(name: string): this
 
 Sets the default instance name.
 
-\`\`\`typescript
+```typescript
 loggerManager.setDefaultInstance('memory');
-\`\`\`
+```
 
 #### getInstanceConfig(name: string): LoggerOptions
 
 Gets the configuration for a specific instance.
 
-\`\`\`typescript
+```typescript
 const config = loggerManager.getInstanceConfig('console');
-\`\`\`
+```
 
 ## Example Usage
 
-\`\`\`typescript
-import { loggerManager } from 'advanced-logger';
+```typescript
+import { loggerManager } from '@pixielity/advanced-logger';
 
 // Create different types of loggers
 const consoleLogger = loggerManager.createConsoleDriver({

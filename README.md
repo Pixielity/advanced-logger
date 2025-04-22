@@ -13,16 +13,16 @@ A flexible and powerful logging library for JavaScript applications.
 
 ## Installation
 
-\`\`\`bash
-npm install advanced-logger
+```bash
+npm install @pixielity/advanced-logger
 # or
-yarn add advanced-logger
-\`\`\`
+yarn add @pixielity/advanced-logger
+```
 
 ## Basic Usage
 
-\`\`\`typescript
-import { Logger, ConsoleTransport, textFormatter } from 'advanced-logger';
+```typescript
+import { Logger, ConsoleTransport, textFormatter } from '@pixielity/advanced-logger';
 
 // Create a simple logger
 const logger = new Logger({
@@ -35,12 +35,12 @@ const logger = new Logger({
 logger.info('Application started');
 logger.warn('Something might be wrong', { details: 'Check this out' });
 logger.error('An error occurred', { error: new Error('Something failed') });
-\`\`\`
+```
 
 ## Using the LoggerManager
 
-\`\`\`typescript
-import { loggerManager } from 'advanced-logger';
+```typescript
+import { loggerManager } from '@pixielity/advanced-logger';
 
 // Create a console logger
 const consoleLogger = loggerManager.createConsoleDriver({
@@ -57,14 +57,14 @@ const storageLogger = loggerManager.createLocalStorageDriver({
 // Log with different loggers
 consoleLogger.info('This goes to console');
 storageLogger.info('This goes to localStorage');
-\`\`\`
+```
 
 ## Advanced Usage
 
 ### Context-aware logging
 
-\`\`\`typescript
-import { Logger, ConsoleTransport } from 'advanced-logger';
+```typescript
+import { Logger, ConsoleTransport } from '@pixielity/advanced-logger';
 
 const logger = new Logger({
   prefix: 'MyApp',
@@ -79,12 +79,12 @@ const userLogger = logger.withContext({
 
 // All logs will include the context
 userLogger.info('User action performed');
-\`\`\`
+```
 
 ### Custom formatters
 
-\`\`\`typescript
-import { LogFormatter, LogData, Logger, ConsoleTransport } from 'advanced-logger';
+```typescript
+import { LogFormatter, LogData, Logger, ConsoleTransport } from '@pixielity/advanced-logger';
 
 // Create a custom formatter
 class MyCustomFormatter implements LogFormatter {
@@ -102,12 +102,12 @@ const logger = new Logger({
   formatter: new MyCustomFormatter(),
   transports: [new ConsoleTransport()]
 });
-\`\`\`
+```
 
 ## License
 
 MIT
-\`\`\`
+```
 
 Let's create a LICENSE file:
 

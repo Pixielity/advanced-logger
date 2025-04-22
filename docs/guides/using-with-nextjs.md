@@ -6,9 +6,9 @@ This guide explains how to effectively use Advanced Logger in Next.js applicatio
 
 First, create a logger configuration that works in both client and server environments:
 
-\`\`\`typescript
+```typescript
 // src/lib/logger.ts
-import { Logger, ConsoleTransport, textFormatter, MemoryTransport, HttpTransport } from 'advanced-logger';
+import { Logger, ConsoleTransport, textFormatter, MemoryTransport, HttpTransport } from '@pixielity/advanced-logger';
 
 // Determine if we're running on the server
 const isServer = typeof window === 'undefined';
@@ -63,13 +63,13 @@ viewport: `${window.innerWidth}x${window.innerHeight}`
 export const memoryTransport = !isServer
 ? createTransports().find(t => t instanceof MemoryTransport) as MemoryTransport
 : null;
-\`\`\`
+```
 
 ## Creating a Log API Route
 
 Create an API route to receive logs from the client:
 
-\`\`\`typescript
+```typescript
 // src/pages/api/logs.ts
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { logger } from '@/lib/logger';
@@ -119,13 +119,13 @@ logger.error('Error processing logs', { error });
 res.status(500).json({ message: 'Error processing logs' });
 }
 }
-\`\`\`
+```
 
 ## Logging in Server Components
 
 For Next.js App Router with React Server Components:
 
-\`\`\`typescript
+```typescript
 // src/app/users/page.tsx
 import { logger } from '@/lib/logger';
 
@@ -162,13 +162,13 @@ logger.error('Failed to fetch users', { error });
 
 }
 }
-\`\`\`
+```
 
 ## Logging in Client Components
 
 For client-side components:
 
-\`\`\`typescript
+```typescript
 // src/components/UserForm.tsx
 'use client';
 
@@ -245,13 +245,13 @@ required
 </form>
 );
 }
-\`\`\`
+```
 
 ## Logging in API Routes
 
 For API routes in the Pages Router:
 
-\`\`\`typescript
+```typescript
 // src/pages/api/users.ts
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { logger } from '@/lib/logger';
@@ -292,13 +292,13 @@ requestLogger.error('Error creating user', { error });
 res.status(500).json({ message: 'Internal server error' });
 }
 }
-\`\`\`
+```
 
 ## Logging in Route Handlers
 
 For App Router route handlers:
 
-\`\`\`typescript
+```typescript
 // src/app/api/users/route.ts
 import { NextRequest, NextResponse } from 'next/server';
 import { logger } from '@/lib/logger';
@@ -343,13 +343,13 @@ return NextResponse.json(
 );
 }
 }
-\`\`\`
+```
 
 ## Logging in Middleware
 
 For Next.js middleware:
 
-\`\`\`typescript
+```typescript
 // src/middleware.ts
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
@@ -376,13 +376,13 @@ return response;
 export const config = {
 matcher: '/api/:path\*',
 };
-\`\`\`
+```
 
 ## Creating a Log Viewer Component
 
 Create a component to display logs in the UI:
 
-\`\`\`typescript
+```typescript
 // src/components/LogViewer.tsx
 'use client';
 
@@ -450,7 +450,7 @@ logs.map((log, index) => (
 </div>
 );
 }
-\`\`\`
+```
 
 ## Best Practices for Next.js
 
@@ -486,6 +486,6 @@ logs.map((log, index) => (
    - Be mindful of log volume in production
 
 By following these guidelines, you can effectively use Advanced Logger in your Next.js applications to improve debugging and monitoring across both client and server environments.
-\`\`\`
+```
 
 Let's create a guide for custom transports:

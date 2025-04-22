@@ -22,18 +22,18 @@ Welcome to the Advanced Logger documentation. This library provides a flexible a
 
 ## Installation
 
-\`\`\`bash
+```bash
 npm install advanced-logger
 
 # or
 
 yarn add advanced-logger
-\`\`\`
+```
 
 ## Quick Start
 
-\`\`\`typescript
-import { Logger, ConsoleTransport, textFormatter } from 'advanced-logger';
+```typescript
+import { Logger, ConsoleTransport, textFormatter } from '@pixielity/advanced-logger';
 
 // Create a simple logger
 const logger = new Logger({
@@ -46,9 +46,9 @@ transports: [new ConsoleTransport()]
 logger.info('Application started');
 logger.warn('Something might be wrong', { details: 'Check this out' });
 logger.error('An error occurred', { error: new Error('Something failed') });
-\`\`\`
+```
 
 For more detailed information, please refer to the [Getting Started](./getting-started.md) guide.
-\`\`\`
+```
 
 Now, let's create the getting started guide:

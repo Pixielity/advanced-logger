@@ -12,15 +12,15 @@ Outputs logs in a standard text format.
 
 Example: `[INFO] [App] 2023-04-22T09:55:11.000Z - User logged in`
 
-\`\`\`typescript
-import { Logger, textFormatter } from 'advanced-logger';
+```typescript
+import { Logger, textFormatter } from '@pixielity/advanced-logger';
 
 const logger = new Logger({
 formatter: textFormatter
 });
 
 logger.info('User logged in');
-\`\`\`
+```
 
 ### JsonFormatter
 
@@ -28,15 +28,15 @@ Outputs logs in JSON format, useful for machine processing.
 
 Example: `{"level":"info","timestamp":"2023-04-22T09:55:11.000Z","prefix":"App","message":"User logged in"}`
 
-\`\`\`typescript
-import { Logger, jsonFormatter } from 'advanced-logger';
+```typescript
+import { Logger, jsonFormatter } from '@pixielity/advanced-logger';
 
 const logger = new Logger({
 formatter: jsonFormatter
 });
 
 logger.info('User logged in');
-\`\`\`
+```
 
 ### PrettyFormatter
 
@@ -44,15 +44,15 @@ Outputs logs in a human-readable format with emojis.
 
 Example: `ℹ️ 09:55:11 [INFO] [App] User logged in`
 
-\`\`\`typescript
-import { Logger, prettyFormatter } from 'advanced-logger';
+```typescript
+import { Logger, prettyFormatter } from '@pixielity/advanced-logger';
 
 const logger = new Logger({
 formatter: prettyFormatter
 });
 
 logger.info('User logged in');
-\`\`\`
+```
 
 ### SimpleFormatter
 
@@ -60,22 +60,22 @@ Outputs logs in a minimal format.
 
 Example: `INFO: User logged in`
 
-\`\`\`typescript
-import { Logger, simpleFormatter } from 'advanced-logger';
+```typescript
+import { Logger, simpleFormatter } from '@pixielity/advanced-logger';
 
 const logger = new Logger({
 formatter: simpleFormatter
 });
 
 logger.info('User logged in');
-\`\`\`
+```
 
 ## Changing Formatters
 
 You can change the formatter after creating a logger:
 
-\`\`\`typescript
-import { Logger, textFormatter, jsonFormatter } from 'advanced-logger';
+```typescript
+import { Logger, textFormatter, jsonFormatter } from '@pixielity/advanced-logger';
 
 const logger = new Logger({
 formatter: textFormatter
@@ -83,14 +83,14 @@ formatter: textFormatter
 
 // Later, switch to JSON format
 logger.setFormatter(jsonFormatter);
-\`\`\`
+```
 
 ## Creating a Custom Formatter
 
 You can create your own formatter by implementing the `LogFormatter` interface:
 
-\`\`\`typescript
-import { LogFormatter, LogData } from 'advanced-logger';
+```typescript
+import { LogFormatter, LogData } from '@pixielity/advanced-logger';
 
 class CustomFormatter implements LogFormatter {
 format(logData: LogData): { message: string; metadata?: Record<string, any> } {
@@ -114,7 +114,7 @@ const { level, timestamp, prefix, message, metadata, context } = logData;
 }
 
 // Use your custom formatter
-import { Logger } from 'advanced-logger';
+import { Logger } from '@pixielity/advanced-logger';
 
 const customFormatter = new CustomFormatter();
 const logger = new Logger({
@@ -122,14 +122,14 @@ formatter: customFormatter
 });
 
 logger.info('Using custom formatter');
-\`\`\`
+```
 
 ## Formatter with Colored Output
 
 Here's an example of a formatter that adds colors to console output:
 
-\`\`\`typescript
-import { LogFormatter, LogData, LogLevel } from 'advanced-logger';
+```typescript
+import { LogFormatter, LogData, LogLevel } from '@pixielity/advanced-logger';
 
 class ColoredFormatter implements LogFormatter {
 private colors = {
@@ -163,7 +163,7 @@ const { level, timestamp, prefix, message, metadata, context } = logData;
 }
 
 // Use your colored formatter
-import { Logger } from 'advanced-logger';
+import { Logger } from '@pixielity/advanced-logger';
 
 const coloredFormatter = new ColoredFormatter();
 const logger = new Logger({
@@ -171,7 +171,7 @@ formatter: coloredFormatter
 });
 
 logger.info('Colorful logging');
-\`\`\`
+```
 
 ## Best Practices
 
@@ -198,6 +198,6 @@ logger.info('Colorful logging');
    - Consider readability vs. completeness
 
 By effectively using formatters, you can make your logs more readable and useful for both humans and machines.
-\`\`\`
+```
 
 Let's create a guide for context-aware logging:
